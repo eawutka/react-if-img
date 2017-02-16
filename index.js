@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 const ImageExists = function(url, callback) {
-  var img = new Image();
-  img.onload = function() { callback(true); };
-  img.onerror = function() { callback(false); };
-  img.src = url;
+  var img = new Image()
+  img.onload = function() { callback(true) }
+  img.onerror = function() { callback(false) }
+  img.src = url
 }
 
 class IfImg extends Component {
@@ -16,13 +16,13 @@ class IfImg extends Component {
     this.checkExistence(props)
   }
   render() {
-    let { src, alt, imgProps, altProps, children } = this.props
+    let { alt, altProps, children, ...rest } = this.props
     return (
       <span className='IfImg'>
         {this.state.existence !== 'undefined' && 
           this.state.existence ?
             (
-              <img alt={alt} src={src} {...imgProps} />
+              <img alt={alt} {...rest} />
             ) : (
               <span {...altProps}>{children ? children : alt}</span>
             )
@@ -41,6 +41,13 @@ class IfImg extends Component {
       this.setState({existence: existence})
     })
   }
+}
+
+IfImg.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  altProps: PropTypes.object,
+  children: PropTypes.oneOf([PropTypes.func, PropTypes.element])
 }
 
 export default IfImg
