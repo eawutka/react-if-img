@@ -1,12 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 
-const ImageExists = function(url, callback) {
-  var img = new Image()
-  img.onload = function() { callback(true) }
-  img.onerror = function() { callback(false) }
-  img.src = url
-}
-
 class IfImg extends Component {
   constructor(props) {
     super()
@@ -37,7 +30,12 @@ class IfImg extends Component {
     }
   }
   checkExistence(props) {
-    ImageExists(props.src, (existence) => {
+    new Promise((resolve, reject) => {
+      let img = new Image()
+      img.onload = () => { resolve(true) }
+      img.onerror = () => { resolve(false) }
+      img.src = props.src
+    }).then((existence) => {
       this.setState({existence: existence})
     })
   }
