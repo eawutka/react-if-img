@@ -1,0 +1,32 @@
+{
+  "name": "react-if-img",
+  "version": "1.0.0",
+  "description": "A react component for rendering an image if it exists, and a placeholder if it doesn't.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eawutka/react-if-img.git"
+  },
+  "keywords": [
+    "react",
+    "img",
+    "image",
+    "url",
+    "src",
+    "alt",
+    "placeholder"
+  ],
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  },
+  "author": "Ethan Wutka <hello@ethanwutka.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eawutka/react-if-img/issues"
+  },
+  "homepage": "https://github.com/eawutka/react-if-img#readme"
+}

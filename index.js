@@ -9,16 +9,22 @@ class IfImg extends Component {
     this.checkExistence(props)
   }
   render() {
-    let { alt, altProps, children, ...rest } = this.props
+    // eslint-disable-next-line
+    let { alt, altProps, children, loading, onResolve, ...rest } = this.props
     return (
       <span className='IfImg'>
-        {this.state.existence !== 'undefined' && 
+        {this.state.existence === undefined ?
+          (
+            loading &&
+            loading
+          ) : (
           this.state.existence ?
             (
               <img alt={alt} {...rest} />
             ) : (
               <span {...altProps}>{children ? children : alt}</span>
             )
+          )
         }
       </span>
     )
@@ -36,6 +42,9 @@ class IfImg extends Component {
       img.onerror = () => { resolve(false) }
       img.src = props.src
     }).then((existence) => {
+      if (this.props.onResolve) {
+        this.props.onResolve(existence)
+      }
       this.setState({existence: existence})
     })
   }
@@ -45,7 +54,8 @@ IfImg.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   altProps: PropTypes.object,
-  children: PropTypes.oneOf([PropTypes.func, PropTypes.element])
+  children: PropTypes.element,
+  onResolve: PropTypes.func
 }
 
 export default IfImg
