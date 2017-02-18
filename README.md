@@ -48,7 +48,7 @@ You can pass in children to render instead of the alt text if the image doesn't 
   <div className="image-not-found">
     <h1>Image not found.</h1>
   </div>
-</img>
+</IfImg>
 ```
 
 By default, nothing will render until the image either loads or cannot be found, but with the optional `loading` prop you can show something in the meantime.
