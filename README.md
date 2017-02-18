@@ -35,7 +35,7 @@ The `altProps` object will apply to the `span` containing the alt text in the ca
     style: {
       fontSize: 25
     },
-    onClick: {() => doStuff()},
+    onClick: () => doStuff(),
     className: "image-alt-text"
   }}
 ```
