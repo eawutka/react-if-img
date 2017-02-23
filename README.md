@@ -3,7 +3,7 @@
 A react component for rendering an image if it exists, and a placeholder if it doesn't.
 
 ### Install:
-```jsx
+```
 npm install --save react-if-img
 ```
 
