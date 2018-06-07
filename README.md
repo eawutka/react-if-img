@@ -26,7 +26,7 @@ You can also pass in arbitrary props for the internal `img` element.
   title={altText}/>
 ```
 
-The `altProps` object will apply to the `span` containing the alt text in the case the image doesn't load.
+The `altProps` object will apply to the `span` containing the alt text in the case that the image doesn't load.
 ```jsx
 <IfImg
   src={url}
