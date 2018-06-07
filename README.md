@@ -44,7 +44,7 @@ The `altProps` object will apply to the `span` containing the alt text in the ca
 
 You can pass in children to render instead of the alt text if the image doesn't exist.
 ```jsx
-<IfImg src={url} alt={altText}>
+<IfImg src={url}>
   <div className="image-not-found">
     <h1>Image not found.</h1>
   </div>
